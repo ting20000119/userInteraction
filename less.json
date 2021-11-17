@@ -1,0 +1,23 @@
+[
+  {
+    "sometime_statue": {
+      "parentAuthor": "Jons312",
+      "parentLeaning": "dem",
+      "childLeaning": "rep"
+    }
+  },
+  {
+    "Jons312": {
+      "parentAuthor": "Nyrfan2017",
+      "parentLeaning": "rep",
+      "childLeaning": "dem"
+    }
+  },
+  {
+    "Nyrfan2017": {
+      "parentAuthor": "AAA",
+      "parentLeaning": "dem",
+      "childLeaning": "rep"
+    }
+  }
+]

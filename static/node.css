@@ -1,0 +1,10 @@
+#container {
+  min-width: 0px;
+  max-width: 5000px;
+  margin: auto;
+  height: 900px;
+}
+/*
+#container{
+  margin-top:50px;
+}*/

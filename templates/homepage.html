@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='node.css') }}">
+<head>
+    <title>Interaction</title>
+</head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<div id="container"></div>
+<script type="text/javascript"
+            src="{{ url_for('static', filename='highchart.js') }}"></script>
+<script  type="text/javascript">
+                myFunc({{arr|tojson}})</script>
+</html>
