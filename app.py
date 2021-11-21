@@ -13,7 +13,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    input_file = open('lessnewdeal.json')
+    input_file = open('newdealBigger232PairCount.json')
+    jjson = json.load(input_file)
+    input_file = open('less.json')
     json_array = json.load(input_file)
     arr = []
     json_obj = {}
@@ -57,7 +59,12 @@ def index():
     arr.append(json_obj)
     print(arr)
     input_file.close()
-    return render_template('homepage.html', arr=arr)
+    return render_template('homepage.html', arr=arr, jjson=jjson)
+
+
+@app.route('/new')
+def new():
+    return render_template('newhome.html')
 
 
 if __name__ == '__main__':

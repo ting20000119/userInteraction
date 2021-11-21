@@ -5,6 +5,8 @@ from tqdm import tqdm
 from config import config
 import json
 conn = None
+
+
 def connect():
     """ Connect to the PostgreSQL database server """
     params = config()
@@ -13,13 +15,15 @@ def connect():
     global conn
     conn = psycopg2.connect(**params)
 
+
 def disconnect():
     global conn
     conn.close()
     print('Database connection closed.')
 
+
 def execute_SQL(insert_stmt):
-    
+
     cur = conn.cursor()
     cur.execute(insert_stmt)
     try:
@@ -30,14 +34,12 @@ def execute_SQL(insert_stmt):
     return result
 
 
-
-
-
 def subtree(sub_id):
     connect()
     subtreeroot = {}
-    sub_id = 't3_'+sub_id 
-    comment_id_list = execute_SQL("select id from politicscom2020 where parent_id = '{sub}'".format(sub=sub_id))
+    sub_id = 't3_'+sub_id
+    comment_id_list = execute_SQL(
+        "select id from politicscom2020 where parent_id = '{sub}'".format(sub=sub_id))
     comment_id_list = [x for (x,) in comment_id_list]
 
     for comment_id in comment_id_list:
@@ -45,16 +47,17 @@ def subtree(sub_id):
     return subtreeroot
 
 
-
 def comchild(com_id):
     comtreeroot = {}
-    com_id = 't1_'+com_id 
-    comment_id_list = execute_SQL("select id from politicscom2020 where parent_id = '{com}'".format(com=com_id))
+    com_id = 't1_'+com_id
+    comment_id_list = execute_SQL(
+        "select id from politicscom2020 where parent_id = '{com}'".format(com=com_id))
     comment_id_list = [x for (x,) in comment_id_list]
 
     for comment_id in comment_id_list:
         comtreeroot[comment_id] = comchild(comment_id)
     return comtreeroot
+
 
 def main():
     connect()
