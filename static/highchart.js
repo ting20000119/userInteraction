@@ -1,10 +1,8 @@
-function myFunc(arr){
+function myFunc(arr , jjson){
 
-var jjson = [{'sometime_statue': 'Jons312', 'count': 2},
-{'Jons312': 'Nyrfan2017', 'count': 1},
-{'Jons312': 'AA', 'count': 1}]
 
-console.log(arr);
+console.log(jjson);
+
 Highcharts.chart("container", {
   chart: {
     type: "networkgraph",
@@ -17,33 +15,29 @@ Highcharts.chart("container", {
 
  
   tooltip: {
+    useHTML: true,
+    style: {
+      pointerEvents: 'auto'
+    },
     formatter: function () {
-     
-    
       var info = "";
-        for (var i = 0; i < jjson.length; i++) {
+      count = 0 ;
+      for (var i = 0; i < jjson.length; i++) {
         const keys = Object.keys(jjson[i]);
-        //console.log(keys[0] + "HI");
-          if(this.key === keys[0]){
+        keys.forEach(key => {
+          if(this.key === key && count < 3){
+            count = count + 1;
             info = info + ' '+ jjson[i][this.key] + ':' +  jjson[i]['count'] ;
-        }
-       }
-      
-     /* if(this.key === "Busan"){
-        info = jjson[0][this.key] + jjson[0]['count']  +  jjson[2][this.key] + jjson[2]['count'];
-      }*/
-      
-      /*switch (this.key) {
-        case "Busan":
-          info = jjson[0][this.key] + jjson[0]['count']  +  jjson[2][this.key] + jjson[2]['count'];
-          break; 
-        case "Jeju":
-          info = jjson.length;
-          break;
-      }*/
-      
-      return "<b>" + this.key + "</b>: " + info;
-    }
+          }
+        });
+      }
+      if(count == 0){
+      return "<b>" + "No reply" + "</b>" ;
+     }
+     else{
+      return "<b>" + "Most frequently replied" + "</b>: " + info + "\n" + '<a href="http://www.google.com">click</a>';
+     }
+  }
   },
 
   plotOptions: {

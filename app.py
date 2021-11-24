@@ -14,8 +14,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    input_file = open('newdealBigger232PairCount.json')
-    jjson = json.load(input_file)
+    input = open('jjsonLess.json')
+    jjson = json.load(input)
+    print(jjson)
     input_file = open('less.json')
     json_array = json.load(input_file)
     arr = []
@@ -62,20 +63,16 @@ def index():
     return render_template('homepage.html', arr=arr, jjson=jjson)
 
 
-@app.route('/new')
-def new():
-    return render_template('newhome.html')
-
 @app.route('/submissiontree')
 def sub_tree():
-    sub_id = request.args.get('id', default = 'j3ygfd', type = str)
+    sub_id = request.args.get('id', default='j3ygfd', type=str)
     print(sub_id)
 
     input_file = open('newdealBigger232PairCount.json')
     jjson = json.load(input_file)
     input_file = open('less.json')
     json_array = json.load(input_file)
-    #print(json_array)
+    # print(json_array)
     json_array = treemaker.getpairlist(sub_id)
     arr = []
     json_obj = {}
@@ -117,7 +114,7 @@ def sub_tree():
         nodeArr.append(nodeDictParent)
     json_obj['nodes'] = nodeArr
     arr.append(json_obj)
-    #print(arr)
+    # print(arr)
     input_file.close()
     #print(json.dumps(arr,indent = 2, separators=(',', ': ')))
     #print(json.dumps(jjson,indent = 2, separators=(',', ': ')))
