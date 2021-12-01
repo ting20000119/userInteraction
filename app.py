@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    input = open('graphFileTest1_newdeal.json')
+    input = open('graphFileTest207Politics.json')
     jjson = json.load(input)
     print(jjson)
     input.close()
@@ -26,7 +26,7 @@ def sub_tree():
     sub_id = request.args.get('id', default='j3ygfd', type=str)
     print(sub_id)
 
-    input_file = open('newdealBigger232PairCount.json')
+    input_file = open('less.json')
     jjson = json.load(input_file)
     input_file = open('less.json')
     json_array = json.load(input_file)
