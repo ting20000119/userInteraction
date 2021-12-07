@@ -4,12 +4,12 @@ var width = 3000,
     height = 3000
 
 var svg = d3.select("body").append("svg")
-    .attr("width", 1250)
-    .attr("height", 1250);
+    .attr("width", 1500)
+    .attr("height", 900);
 
 var force = d3.layout.force()
-    .gravity(0.1)
-    .distance(70)
+    .gravity(0.25)
+    .distance(100)
     .charge(-100)
     //.linkDistance(12)//線的距離長度
     .size([950, 750]);
@@ -37,12 +37,12 @@ console.log(json);
       
 
   node.append("circle").style("fill", function (d) { return d.leaning; })
-      .attr("r","15");
+      .attr("r","10");
 
   node.append("text")
       .attr("dx", 12)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.author });
+      .attr("dy", ".35em");
+      //.text(function(d) { return d.author });
 
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
