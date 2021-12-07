@@ -1,8 +1,8 @@
 {
   "nodes":[
-		{"author":"node1","leaning": "#1212FF"}, 
+		{"author":"node1","leaning": "#B80000"}, 
 		{"author":"node2","leaning" : "#1212FF"},
-		{"author":"node3","leaning" : "#B80000"},
+		{"author":"node3","leaning" : "#1212FF"},
 		{"author":"node4","leaning" : "#B80000"}
 	],
 	"links":[

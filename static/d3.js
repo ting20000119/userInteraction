@@ -11,7 +11,6 @@ var force = d3.layout.force()
     .gravity(0.25)
     .distance(100)
     .charge(-100)
-    //.linkDistance(12)//線的距離長度
     .size([950, 750]);
 
 console.log(json);
