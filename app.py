@@ -14,9 +14,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    input = open('graphFileTest207Politics.json')
+    input = open('graphFile.json')
     jjson = json.load(input)
-    print(jjson)
+    # print(jjson)
     input.close()
     return render_template('d3.html', json=jjson)
 

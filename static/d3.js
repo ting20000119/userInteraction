@@ -4,27 +4,15 @@ var width = 3000,
     height = 3000
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", 1250)
+    .attr("height", 1250);
 
 var force = d3.layout.force()
-    .gravity(.05)
-    .distance(100)
+    .gravity(0.1)
+    .distance(70)
     .charge(-100)
-    .size([width, height]);
-
-/*var json = {
-    "nodes":[
-          {"name":"node1"},
-          {"name":"node2"},
-          {"name":"node3"},
-          {"name":"node4"}
-      ],
-      "links":[
-          {"source":2,"target":1,"weight":1},
-          {"source":0,"target":2,"weight":10}
-      ]
-  }*/
+    //.linkDistance(12)//線的距離長度
+    .size([950, 750]);
 
 console.log(json);
 
@@ -37,6 +25,7 @@ console.log(json);
       .data(json.links)
     .enter().append("line")
       .attr("class", "link")
+      .style("stroke", function(d){ if(d.position == "same") {return 'orange'} else {return 'green'} }) 
     .style("stroke-width", function(d) { return Math.sqrt(d.count); });
 
 

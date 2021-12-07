@@ -1,14 +1,13 @@
 {
   "nodes":[
-		{"author":"node1","leaning": "#1212FF"}, //blue
+		{"author":"node1","leaning": "#1212FF"}, 
 		{"author":"node2","leaning" : "#1212FF"},
 		{"author":"node3","leaning" : "#B80000"},
 		{"author":"node4","leaning" : "#B80000"}
 	],
 	"links":[
-		{"source":2,"target":1,"count":1},
-		{"source":0,"target":2,"count":100},
-		{"source":2,"target":0,"count":100}
+		{"source":2,"target":1,"count":1 , "position": "same"},
+		{"source":0,"target":2,"count":100 , "position": "different"}
 	]
 }
 
